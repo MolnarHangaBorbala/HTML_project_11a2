@@ -48,9 +48,10 @@
                 <form action="">
                     <fieldset>
                         <legend>Megrendelő adatai</legend>
-                        <p><label for="">Név: <input type="text" name="nev" id="nev"></label>
+                        <p><label for="nev">Név: <input type="text" name="nev" id="nev" placeholder="Név megadása.." required></label>
                             <small>Vezetéknév Keresztnév</small></p>
-                        <p><label for="">Telefon: <input type="tel" name="telefon" id="telefon" size="16"></label></p>
+                        <p><label for="telefon">Telefon: <input type="tel" name="telefon" id="telefon" size="16" placeholder="Telefonszám megadása.." required></label></p>
+                        <p><label for="cim">Kiszállítási cím: <input type="text" name="cim" id="cim" placeholder="Ide kérem.." required></label></p>
                     </fieldset>
                     <fieldset>
                         <legend>Pizza mérete</legend>
@@ -64,13 +65,18 @@
                         <p><label for=""><input type="checkbox" name="feltet2" value="sajt">Sajt</label></p>
                         <p><label for=""><input type="checkbox" name="feltet3" value="gomba">Gomba</label></p>
                     </fieldset>
+                    <p><label for="">Mennyiség: <input type="number" name="mennyiseg"></label></p>
+                    <p><label for="">Kért kiszállítási idő: <input type="date" name="kiszallitas" id=""></label></p>
+                    <p><label for="">Egyéb kívánságok: <br><textarea name="egyeb" id="egyeb"></textarea></label></p>
+                    <button type="reset">Alaphelyzet</button>
+                    <button type="submit">Elküldés</button>
                 </form>
             </article>
         </section>
     </div>
     <footer>
         <h2>&#60;footer&#62;</h2><br>
-        &#169; 2025/26 Molnár Hanga Borbála | All rights reserved
+        <p>&#169; 2025/26 Molnár Hanga Borbála | All rights reserved</p>
     </footer>
 </body>
 
