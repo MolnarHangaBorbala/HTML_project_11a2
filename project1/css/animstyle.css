@@ -39,7 +39,7 @@
     font-weight: bold;
     color: var(--text-color);
     text-shadow: 0 0 10px var(--text-color), 0 0 20px var(--border-color);
-    animation: time-flicker 0.1s infinite alternate;
+    animation: flicker 0.1s infinite alternate;
 }
 
 .digit {
@@ -63,18 +63,6 @@
     50%,
     100% {
         opacity: 0;
-    }
-}
-
-@keyframes time-flicker {
-
-    0%,
-    100% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0.97;
     }
 }
 
@@ -140,7 +128,7 @@
     }
 
     50% {
-        opacity: 0.95;
+        opacity: 0.93;
     }
 }
 
