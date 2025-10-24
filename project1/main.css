@@ -130,7 +130,7 @@ footer {
     font-family: "Courier New", monospace;
     color: var(--text-color);
     overflow: hidden;
-    border-right: .15em solid var(--text-color);
+    border-right: .13em solid var(--text-color);
     white-space: nowrap;
     letter-spacing: .1em;
     animation: typing 3s steps(30, end), blink .75s step-end infinite;
