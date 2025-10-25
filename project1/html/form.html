@@ -34,19 +34,30 @@
             <form id="bugReportForm">
                 <!-- Name -->
                 <div class="form-group">
-                    <label for="name">&gt; REPORTER_NAME: <span class="star">*</span></label>
+                    <label for="name">&gt; REPORTER_NAME:
+                        <span class="star">
+                            *
+                            <div class="tooltip">Required to fill out.</div>
+                        </span>
+                    </label>
                     <input type="text" id="name" name="name" placeholder="Enter your name..." required>
                 </div>
 
                 <!-- Email -->
                 <div class="form-group">
-                    <label for="email">&gt; EMAIL_ADDRESS: <span class="star">*</span></label>
+                    <label for="email">&gt; EMAIL_ADDRESS: <span class="star">
+                            *
+                            <div class="tooltip">Required to fill out.</div>
+                        </span></label>
                     <input type="email" id="email" name="email" placeholder="user@domain.com" required>
                 </div>
 
                 <!-- Bug type -->
                 <div class="form-group">
-                    <label for="bugType">&gt; BUG_TYPE: <span class="star">*</span></label>
+                    <label for="bugType">&gt; BUG_TYPE: <span class="star">
+                            *
+                            <div class="tooltip">Required to fill out.</div>
+                        </span></label>
                     <select id="bugType" name="bugType" required>
                         <option value="">-- SELECT TYPE --</option>
                         <option value="ui">UI/UX Issue</option>
@@ -63,7 +74,10 @@
                 <div class="form-group">
                     <fieldset>
                         <legend>
-                            <label class="main-label">&gt; SEVERITY_LEVEL: <span class="star">*</span></label>
+                            <label class="main-label">&gt; SEVERITY_LEVEL: <span class="star">
+                                    *
+                                    <div class="tooltip">Required to fill out.</div>
+                                </span></label>
                         </legend>
                         <div class="radio-group">
                             <label class="radio-label">
@@ -126,7 +140,10 @@
 
                 <!-- System Info -->
                 <div class="form-group">
-                    <label for="systemInfo">&gt; SYSTEM_INFO: <span class="star">*</span></label>
+                    <label for="systemInfo">&gt; SYSTEM_INFO: <span class="star">
+                            *
+                            <div class="tooltip">Required to fill out.</div>
+                        </span></label>
                     <input type="text" id="systemInfo" name="systemInfo"
                         placeholder="OS, Browser, Version (e.g., Windows 11, Chrome 120)" required>
                 </div>
@@ -159,7 +176,6 @@
                 <div class="form-footer">
                     <p>&gt; All bug reports are encrypted and sent to development team</p>
                     <p>&gt; Response time: 24-48 hours | Priority bugs: &lt; 4 hours</p>
-                    <p><strong>&gt; Fields with * are must be filled.</strong></p>
                 </div>
             </form>
         </div>
