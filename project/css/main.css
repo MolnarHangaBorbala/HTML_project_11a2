@@ -5,7 +5,7 @@ body {
 
 h2 {
     text-align: center;
-    color: rgb(17, 0, 255);
+    color: rgb(255, 255, 255);
 }
 
 header,
@@ -13,7 +13,7 @@ nav,
 section,
 article,
 footer {
-    border: 1px dashed red;
+    border: 1px dashed rgb(174, 0, 255);
     border-radius: 10px;
 }
 
@@ -21,7 +21,7 @@ header {
     width: 100%;
     height: 200px;
     margin-bottom: 10px;
-    background-color: peru;
+    background-color: rgba(95, 15, 82, 0.952);
 }
 
 nav {
@@ -30,7 +30,7 @@ nav {
     height: 1100px;
     float: left;
     margin: 0px 30px 0px 30px;
-    background-color: rgba(222, 184, 135, 0.75);
+    background-color: rgba(58, 26, 59, 0.75);
 }
 
 #menu {
@@ -45,12 +45,12 @@ nav {
 
 #banner-content a {
     text-decoration: none;
-    color: orangered;
+    color: rgb(251, 255, 34);
 }
 
 #banner-content a:hover {
     text-decoration: underline;
-    color: powderblue;
+    color: rgb(204, 207, 25);
 }
 
 #logo {
@@ -65,7 +65,7 @@ section {
     height: 1100px;
     max-width: 800px;
     float: left;
-    background-color: rgba(222, 184, 135, 0.75);
+    background-color: rgba(58, 26, 59, 0.75);
 }
 
 article {
@@ -75,7 +75,7 @@ article {
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgb(222, 184, 135);
+    background-color: rgb(77, 28, 78);
     text-align: justify;
     line-height: 1.5em;
     padding: 20px;
@@ -84,7 +84,7 @@ article {
 }
 
 article p {
-    color:fuchsia;
+    color: rgb(255, 255, 255);
 }
 
 article img {
@@ -97,7 +97,7 @@ footer {
     height: 100px;
     float: left;
     margin: 10px 0px 20px 0px;
-    background-color: rgba(204, 33, 33, 0.75);
+    background-color: rgba(58, 26, 59, 0.75);
 }
 
 footer p {
@@ -124,12 +124,12 @@ footer p {
     padding: 3px;
     display: block;
     text-align: center;
-    background-color: aqua;
+    background-color: rgb(113, 73, 255);
 }
 
 #menu ul li a:hover {
-    background-color: chartreuse;
-    color: crimson;
+    background-color: rgb(255, 0, 234);
+    color: rgb(255, 255, 255);
 }
 
 #menu ul ul a {
@@ -139,6 +139,6 @@ footer p {
     display: none;
 }
 
-#menu ul li:hover > ul a {
+#menu ul li:hover>ul a {
     display: block;
 }
