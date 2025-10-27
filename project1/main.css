@@ -89,7 +89,7 @@ nav a:hover {
 }
 
 .section:hover {
-    filter: brightness(1.5);
+    filter: brightness(1.2);
 }
 
 .section.small {
@@ -190,4 +190,5 @@ footer {
     margin: 10px 0 15px 0;
     text-align: left;
     animation: flicker 0.15s infinite alternate;
+
 }
