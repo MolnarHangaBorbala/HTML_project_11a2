@@ -5,7 +5,7 @@ body {
 
 h2 {
     text-align: center;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 
 header,
@@ -13,7 +13,7 @@ nav,
 section,
 article,
 footer {
-    border: 1px dashed rgb(174, 0, 255);
+    border: 1px dashed rgb(255, 0, 0);
     border-radius: 10px;
 }
 
@@ -21,7 +21,7 @@ header {
     width: 100%;
     height: 200px;
     margin-bottom: 10px;
-    background-color: rgba(95, 15, 82, 0.952);
+    background-color: rgba(255, 255, 255, 0.952);
 }
 
 nav {
@@ -30,7 +30,7 @@ nav {
     height: 1100px;
     float: left;
     margin: 0px 30px 0px 30px;
-    background-color: rgba(58, 26, 59, 0.75);
+    background-color: rgba(255, 255, 255, 0.75);
 }
 
 #menu {
@@ -45,12 +45,12 @@ nav {
 
 #banner-content a {
     text-decoration: none;
-    color: rgb(251, 255, 34);
+    color: rgb(255, 123, 0);
 }
 
 #banner-content a:hover {
     text-decoration: underline;
-    color: rgb(204, 207, 25);
+    color: rgb(158, 76, 0);
 }
 
 #logo {
@@ -65,7 +65,7 @@ section {
     height: 1100px;
     max-width: 800px;
     float: left;
-    background-color: rgba(58, 26, 59, 0.75);
+    background-color: rgba(255, 255, 255, 0.75);
 }
 
 article {
@@ -75,7 +75,7 @@ article {
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgb(77, 28, 78);
+    background-color: rgb(255, 255, 255);
     text-align: justify;
     line-height: 1.5em;
     padding: 20px;
@@ -84,7 +84,7 @@ article {
 }
 
 article p {
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 
 article img {
@@ -97,7 +97,7 @@ footer {
     height: 100px;
     float: left;
     margin: 10px 0px 20px 0px;
-    background-color: rgba(58, 26, 59, 0.75);
+    background-color: rgba(255, 255, 255, 0.75);
 }
 
 footer p {
@@ -124,7 +124,7 @@ footer p {
     padding: 3px;
     display: block;
     text-align: center;
-    background-color: rgb(113, 73, 255);
+    background-color: rgb(255, 73, 73);
 }
 
 #menu ul li a:hover {
