@@ -244,7 +244,7 @@
 }
 
 .mug:hover .steam {
-    --tilt: 30deg;
+    --tilt: 15deg;
 }
 
 @keyframes steam-rise {
