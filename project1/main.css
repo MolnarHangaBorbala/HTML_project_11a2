@@ -16,6 +16,7 @@ body {
     --text-color: #33ff00;
     --header-bg-color: #021200;
     --scroll-color: #086600;
+    --row-even-bg-color: #1d361b;
 }
 
 .container {
