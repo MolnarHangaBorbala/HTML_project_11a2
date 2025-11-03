@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>11a2 HTML project 2026</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            padding: 5px 10px;
+            border-collapse: collapse;
+        }
+        th {
+            background-color: cornflowerblue;
+            color: white;
+            text-align: center;
+        }
+        .table-container {
+            width: 700px;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 50px;
+        }
+
+        table tr:nth-child(2) {
+            background-color: lightcyan;
+        }
+
+        table td:nth-child(4) {
+            background-color: darkgray;
+            color: white;
+        }
+
+        table tr:hover {
+            background-color: cadetblue;
+            color: white;
+        }
+
+        table tr .lakcím {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="logo">
+            <a href="index.html">
+                <img src="images/premo-logo.png" alt="Premo logo" width="100" title="Premo logo">
+            </a>
+        </div>
+        <div id="banner-content">
+            <a href="index.html">
+                <h1 title="11a2 HTML project 2026">11a2 HTML project 2026</h1>
+            </a>
+            <h2>&#60;header&#62;</h2>
+        </div>
+    </header>
+    <div class="container">
+        <nav>
+            <h2>&#60;nav&#62;</h2>
+            <div id="menu">
+                <ul>
+                    <li><a href="index.html" title="Főoldal">Főoldal</a></li>
+                    <li><a href="#nogo" title="HTML demo">HTML demo</a>
+                        <ul>
+                            <li><a href="animation.html">CSS animáció</a>
+                            <li><a href="form.html">HTML űrlap</a>
+                            <li><a href="table.html">HTML táblázat</a></li>
+                            <li><a href="gallery.html">Képgaléria</a></li>
+                            <li><a href="media.html">Média</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <section>
+            <h2>&#60;section&#62;</h2>
+            <article>
+                <h2>&#60;HTML táblázat&#62;</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>NÉV</th>
+                                <th>FOGLALKOZÁS</th>
+                                <th>LAKCÍM</th>
+                                <th>TELEFONSZÁM</th>
+                                <th>EMAIL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1.</td>
+                                <td>Gipsz Jakab</td>
+                                <td>Programozó</td>
+                                <td>Pék utca 10.</td>
+                                <td>111-222</td>
+                                <td>gipsz.jakab@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <td>2.</td>
+                                <td>Joe Doe</td>
+                                <td>Webdeveloper</td>
+                                <td>Baker Street 10.</td>
+                                <td>222-333</td>
+                                <td>joe.doe@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <td>3.</td>
+                                <td>Hapci Marci</td>
+                                <td>Tanár</td>
+                                <td class="lakcím">Fő tér 10.</td>
+                                <td>333-444</td>
+                                <td>hapci.marci@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <td>4.</td>
+                                <td>Norma Flóra</td>
+                                <td>Gasztroenterológus</td>
+                                <td>Vak Béla utca 1.</td>
+                                <td>444-555</td>
+                                <td>norma.flora@vipmail.hu</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+        </section>
+    </div>
+    <footer>
+        <h2>&#60;footer&#62;</h2><br>
+        <p>&#169; 2025/26 Molnár Hanga Borbála | All rights reserved</p>
+    </footer>
+</body>
+
+</html>

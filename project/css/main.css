@@ -124,11 +124,11 @@ footer p {
     padding: 3px;
     display: block;
     text-align: center;
-    background-color: rgb(255, 73, 73);
+    background-color: rgb(155, 155, 155);
 }
 
 #menu ul li a:hover {
-    background-color: rgb(255, 0, 234);
+    background-color: rgb(255, 134, 35);
     color: rgb(255, 255, 255);
 }
 
