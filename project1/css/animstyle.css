@@ -1,7 +1,7 @@
 .animation-container {
     width: 930px;
     margin: 30px auto;
-    height: 480px;
+    height: 680px;
     background: #0d2b0d;
     border: 2px solid var(--border-color);
     position: relative;
@@ -11,7 +11,7 @@
 .desk-clock {
     position: absolute;
     bottom: 225px;
-    left: 180px;
+    left: 110px;
     width: 100px;
     height: 40px;
     z-index: 0;
@@ -20,7 +20,7 @@
 .digital-clock {
     width: 100%;
     height: 100%;
-    background: linear-gradient(145deg, #000000, #001a00);
+    background: linear-gradient(145deg, #000, #001a00);
     border: 3px solid var(--border-color);
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 255, 13, 0.4), inset 0 0 15px rgba(0, 255, 13, 0.1);
@@ -72,7 +72,7 @@
     bottom: 15px;
     left: 50%;
     transform: translateX(-50%);
-    width: 600px;
+    width: 800px;
     height: 200px;
     background: linear-gradient(180deg, #1a3d1a 0%, #0f2a0f 100%);
     border: 3px solid var(--border-color);
@@ -85,7 +85,7 @@
 .monitor {
     position: absolute;
     bottom: 230px;
-    left: 50%;
+    left: 45%;
     transform: translateX(-50%);
     width: 320px;
     height: 200px;
@@ -206,7 +206,7 @@
 .mug {
     position: absolute;
     bottom: 220px;
-    right: 210px;
+    right: 260px;
     width: 40px;
     height: 45px;
     background: linear-gradient(180deg, #001a00, #000a00);
@@ -439,7 +439,8 @@
 /* Mouse */
 .mouse {
     position: absolute;
-    bottom: 110px;
+    bottom: 90px;
+    transform: rotate(-20deg);
     right: 240px;
     width: 50px;
     height: 70px;
@@ -448,6 +449,7 @@
     border-radius: 20px 20px 25px 25px;
     box-shadow: 0 0 15px rgba(0, 255, 13, 0.3), inset 0 2px 10px rgba(0, 255, 13, 0.1);
     z-index: 10;
+    animation: mouse-move 10s ease infinite;
 }
 
 .mouse::before {
@@ -488,4 +490,438 @@
         opacity: 0.3;
         transform: translateX(-50%) translateY(0);
     }
+}
+
+@keyframes mouse-move {
+    0% {
+        transform: rotate(350deg) translateY(30px) rotate(-370deg);
+    }
+
+    100% {
+        transform: rotate(-10deg) translateY(30px) rotate(-10deg);
+    }
+}
+
+/* Mousepad */
+.mousepad {
+    background-color: #000;
+    position: absolute;
+    bottom: 30px;
+    right: 170px;
+    width: 650px;
+    height: 180px;
+    z-index: 9;
+    border-radius: 10px;
+    border: #0c790c 2px solid;
+}
+
+#eShark-logo {
+    position: absolute;
+    height: 15px;
+    bottom: 10px;
+    left: 10px;
+    filter: brightness(0.9);
+}
+
+/* Desklamp */
+.lampbase {
+    bottom: 220px;
+    right: 100px;
+    position: absolute;
+    height: 7px;
+    width: 80px;
+    background-color: #000;
+    border: 2px solid #22ac22;
+    border-radius: 2px;
+}
+
+.lampbase::after {
+    filter: blur(1px);
+    content: "";
+    position: absolute;
+    left: -33px;
+    top: -180px;
+    width: 90px;
+    height: 170px;
+    border: 4px solid #000;
+    border-color: transparent transparent transparent rgb(0, 0, 0);
+    border-radius: 0 0 0 99px;
+    transform: rotate(180deg);
+}
+
+.lampbase::before {
+    filter: blur(1px);
+    content: "";
+    position: absolute;
+    left: -50px;
+    top: -178px;
+    width: 110px;
+    height: 170px;
+    border: 4px solid #000;
+    border-color: transparent transparent rgb(0, 0, 0) transparent;
+    border-radius: 0 0 0 100px;
+    transform: rotate(180deg);
+}
+
+.lamp {
+    bottom: 400px;
+    right: 200px;
+    position: absolute;
+    height: 7px;
+    width: 80px;
+    background-color: #000;
+    border: 2px solid var(--border-color);
+    border-radius: 2px;
+}
+
+/* Light */
+.lamp::after {
+    content: "";
+    position: absolute;
+    top: 8px;
+    right: -30px;
+    width: 140px;
+    height: 150px;
+    background: radial-gradient(ellipse at top, rgba(145, 255, 145, 0.308) 0%, rgba(0, 255, 0, 0) 80%);
+    clip-path: polygon(25% 0%, 75% 0%, 100% 100%, 0% 100%);
+    animation: lamp-flicker 5s infinite;
+}
+
+/* Blob */
+.lamp::before {
+    content: "";
+    position: absolute;
+    left: 150px;
+    top: 164px;
+    width: 25px;
+    height: 14px;
+    border-radius: 7px 7px 0 0;
+    background-color: #000;
+    border: 2px solid #187418;
+    z-index: 100;
+    border-bottom: none;
+}
+
+@keyframes lamp-flicker {
+
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+        opacity: 1;
+    }
+
+    20%,
+    22%,
+    24%,
+    55% {
+        opacity: 0.2;
+    }
+}
+
+/* Shelf */
+.shelf {
+    position: absolute;
+    top: 180px;
+    left: 80px;
+    height: 10px;
+    width: 300px;
+    background-color: #3d2d00;
+    border: 2px solid #815112;
+    border-radius: 2px;
+    box-shadow: 0px 25px 30px #000000a4;
+}
+
+.shelf::before,
+.shelf::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    height: 10px;
+    width: 30px;
+    background-color: #3d3200;
+    border: 2px solid #815a12;
+    border-top: none;
+    filter: brightness(0.7);
+    box-shadow: 0px 25px 30px #000000a4;
+}
+
+.shelf::before {
+    left: 30px;
+}
+
+.shelf::after {
+    right: 30px;
+}
+
+/* Plant */
+.plant {
+    position: absolute;
+    top: 70px;
+    left: 130px;
+    width: 10px;
+    height: 60px;
+    background-color: #037d12;
+    border-radius: 10px;
+    transform-origin: bottom center;
+    z-index: 5;
+    animation: sway 4s ease-in-out infinite alternate;
+}
+
+.plant::before {
+    content: "";
+    position: absolute;
+    bottom: 40px;
+    left: -20px;
+    width: 20px;
+    height: 50px;
+    background-color: #05a61a;
+    border-radius: 50% 50% 0 50%;
+    transform: rotate(-35deg);
+    box-shadow: inset -3px -3px 5px #003f07;
+}
+
+.plant::after {
+    content: "";
+    position: absolute;
+    bottom: 40px;
+    right: -20px;
+    width: 20px;
+    height: 50px;
+    background-color: #05a61a;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(35deg);
+    box-shadow: inset 3px -3px 5px #003f07;
+}
+
+@keyframes sway {
+
+    0%,
+    100% {
+        transform: rotate(-5deg);
+    }
+
+    50% {
+        transform: rotate(5deg);
+    }
+}
+
+.plant-pot {
+    position: absolute;
+    top: 110px;
+    left: 100px;
+    height: 60px;
+    width: 70px;
+    background-color: #3b230c;
+    border: 3px solid #663c15;
+    border-radius: 2px;
+    clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+    transform: rotate(180deg);
+}
+
+.plant-rim {
+    position: absolute;
+    top: 110px;
+    left: 90px;
+    height: 18px;
+    width: 90px;
+    background-color: #502f11;
+    border: 1px solid #502f11;
+    border-radius: 2px;
+    z-index: 10;
+    box-shadow: 0px 5px 10px #00000034;
+}
+
+/* Books on shelf */
+.book {
+    position: absolute;
+    top: 100px;
+    width: 20px;
+    height: 80px;
+    border-radius: 2px;
+    filter: grayscale(0.5);
+}
+
+.book::after {
+    position: absolute;
+    content: "";
+    bottom: 75%;
+    background: rgb(228, 228, 228);
+    width: 20px;
+    height: 5px;
+}
+
+.book1 {
+    top: 128px;
+    left: 231px;
+    background-color: #4495ff;
+    rotate: -90deg;
+}
+
+.book2 {
+    left: 283px;
+    background-color: #8844ff;
+}
+
+.book3 {
+    left: 306px;
+    background-color: #ff6666;
+}
+
+.book4 {
+    left: 334px;
+    background-color: #ffaa00;
+    rotate: -10deg;
+}
+
+/* Pictures & Frames & Images */
+.pic {
+    border: 2px solid #05a61a;
+    background-color: #000;
+    position: absolute;
+}
+
+.frame {
+    position: relative;
+    border: 1px solid #05a61a;
+    margin: auto;
+    margin-top: 9px;
+    background:
+        radial-gradient(circle at top left, #05a61a55, transparent 60%),
+        radial-gradient(circle at bottom right, #00ff9955, transparent 60%);
+    box-shadow:
+        inset 0 0 15px #05a61a44,
+        0 0 20px #05a61a33;
+    z-index: 100;
+}
+
+#img1,
+#img2,
+#img3,
+#img5 {
+    filter: brightness(0.5)
+}
+
+/* Top Big */
+.pic1 {
+    right: 145px;
+    height: 110px;
+    width: 140px;
+    top: 35px;
+}
+
+.frame1,
+#img1 {
+    height: 90px;
+    width: 120px;
+}
+
+#img1 {
+    transform: translate(10px, -90px);
+    position: relative;
+    z-index: 1;
+}
+
+/* Top Right Medium */
+.pic2 {
+    right: 35px;
+    height: 100px;
+    width: 100px;
+    top: 35px;
+}
+
+.frame2,
+#img2 {
+    height: 80px;
+    width: 80px;
+}
+
+#img2 {
+    transform: translate(10px, -80px);
+    position: relative;
+    z-index: 1;
+}
+
+/* Top Tall */
+.pic3 {
+    right: 395px;
+    height: 120px;
+    width: 80px;
+    top: 35px;
+}
+
+.frame3,
+#img3 {
+    height: 100px;
+    width: 60px;
+}
+
+#img3 {
+    transform: translate(10px, -100px);
+    position: relative;
+    z-index: 1;
+}
+
+/* Top Left Medium */
+.pic4 {
+    right: 295px;
+    height: 70px;
+    width: 90px;
+    top: 35px;
+}
+
+.frame4,
+#img4 {
+    height: 50px;
+    width: 70px;
+}
+
+#img4 {
+    transform: translate(10px, -50px);
+    position: relative;
+    z-index: 1;
+}
+
+/* Bottom Tall */
+.pic5 {
+    right: 35px;
+    height: 110px;
+    width: 80px;
+    top: 145px;
+}
+
+.frame5,
+#img5 {
+    height: 90px;
+    width: 60px;
+}
+
+#img5 {
+    transform: translate(10px, -90px);
+    position: relative;
+    z-index: 1;
+}
+
+/* Bottom Wide */
+.pic6 {
+    right: 125px;
+    height: 80px;
+    width: 190px;
+    top: 155px;
+}
+
+.frame6,
+#img6 {
+    height: 60px;
+    width: 170px;
+}
+
+#img6 {
+    transform: translate(10px, -60px);
+    position: relative;
+    z-index: 1;
 }

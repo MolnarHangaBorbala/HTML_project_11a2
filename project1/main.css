@@ -23,7 +23,7 @@ body {
     width: 930px;
     margin: 0 auto;
 }
-
+ 
 header {
     background: var(--header-bg-color);
     padding: 10px 20px;
@@ -193,3 +193,4 @@ footer {
     animation: flicker 0.15s infinite alternate;
 
 }
+
