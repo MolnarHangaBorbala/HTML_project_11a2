@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animation | Project1</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="../css/animstyle.css">
+    <link rel="shortcut icon" href="../img/programming.png" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <h3 class="typing">&gt;_CSS ANIMATION</h3>
+    </header>
+
+    <nav>
+        <a href="../index.html">Main Page</a> |
+        <a href="anim.html" class="selected">Animation</a> |
+        <a href="form.html">Form</a> |
+        <a href="table.html">Table</a> |
+        <a href="gallery.html">Gallery</a> |
+        <a href="media.html">Media</a>
+    </nav>
+
+    <div class="container">
+        <div class="animation-container">
+            <!-- Background code effect -->
+            <div class="bg-code">
+                <div class="bg-line">01001000 01000001 01000011 01001011 01000101 01010010</div>
+                <div class="bg-line" style="top: 150px; animation-delay: -5s;">ACCESSING DATABASE... ENCRYPTED FILES
+                    FOUND...</div>
+                <div class="bg-line">NEURAL NETWORK INITIALIZED... RUNNING
+                    ALGORITHM...</div>
+            </div>
+
+            <!-- Shelf & Plant & Books-->
+            <div class="plant"></div>
+            <div class="plant-rim"></div>
+            <div class="plant-pot"></div>
+            <div class="book book1"></div>
+            <div class="book book2"></div>
+            <div class="book book3"></div>
+            <div class="book book4"></div>
+            <div class="shelf"></div>
+
+            <!-- Pictures -->
+            <div class="pic pic1">
+                <div class="frame frame1"></div>
+                <img id="img1" src="../img/frames/1.jpg" alt="">
+            </div>
+            <div class="pic pic2">
+                <div class="frame frame2"></div>
+                <img id="img2" src="../img/frames/2.jpg" alt="">
+            </div>
+            <div class="pic pic3">
+                <div class="frame frame3"></div>
+                <img id="img3" src="../img/frames/3.jpg" alt="">
+            </div>
+            <div class="pic pic4">
+                <div class="frame frame4"></div>
+                <img id="img4" src="../img/frames/4.jpg" alt="">
+            </div>
+            <div class="pic pic5">
+                <div class="frame frame5"></div>
+                <img id="img5" src="../img/frames/5.jfif" alt="">
+            </div>
+            <div class="pic pic6">
+                <div class="frame frame6"></div>
+                <img id="img6" src="../img/frames/6.jpg" alt="">
+            </div>
+
+            <!-- Desk clock -->
+            <div class="desk-clock">
+                <div class="digital-clock">
+                    <div class="time-display">
+                        <span class="digit">1</span>
+                        <span class="digit">2</span>
+                        <span class="separator">:</span>
+                        <span class="digit">3</span>
+                        <span class="digit">4</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monitor -->
+            <div class="monitor">
+                <div class="screen">
+                    <div class="window">
+                        <div class="code-line">&gt; System access: GRANTED</div>
+                        <div class="code-line">&gt; Running diagnostics...</div>
+                        <div class="code-line">&gt; [████████████] 100%</div>
+                        <div class="code-line">&gt; Status: ONLINE</div>
+                        <div class="code-line">&gt; Awaiting commands...</div>
+                        <div class="code-line typing-line">&gt; sudo apt update</div>
+                    </div>
+                    <div class="tray">
+                        <span id="win-logo">⊞</span>
+                        <div class="app-logos">
+                            <span>🔎</span>
+                            <span>⚙️</span>
+                            <span>📁</span>
+                            <span>🎨</span>
+                            <span id="current-window">📟</span>
+                            <span>🎵</span>
+                        </div>
+                        <span class="app-logos-right">
+                            <span>🌐</span>
+                            <span>🔊</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lamp -->
+            <div class="lamp"></div>
+            <div class="lampbase"></div>
+
+            <!-- Keyboard -->
+            <div class="keyboard">
+                <!-- Row 1: Number row -->
+                <div class="key-row">
+                    <div class="key">~</div>
+                    <div class="key">1</div>
+                    <div class="key">2</div>
+                    <div class="key">3</div>
+                    <div class="key">4</div>
+                    <div class="key">5</div>
+                    <div class="key">6</div>
+                    <div class="key">7</div>
+                    <div class="key">8</div>
+                    <div class="key">9</div>
+                    <div class="key">#</div>
+                    <div class="key">&</div>
+                    <div class="key">@</div>
+                    <div class="key wide"><span class="label" data-char="⬅">⬅</span></div>
+                </div>
+                <!-- Row 2: Q row -->
+                <div class="key-row">
+                    <div class="key wide">⇄</div>
+                    <div class="key">Q</div>
+                    <div class="key">W</div>
+                    <div class="key"><span class="label" data-char="E">E</span></div>
+                    <div class="key">R</div>
+                    <div class="key"><span class="label" data-char="T">T</span></div>
+                    <div class="key">Y</div>
+                    <div class="key"><span class="label" data-char="U">U</span></div>
+                    <div class="key">I</div>
+                    <div class="key"><span class="label" data-char="O">O</span></div>
+                    <div class="key"><span class="label" data-char="P">P</span></div>
+                    <div class="key">[</div>
+                    <div class="key">]</div>
+                    <div class="key">\\</div>
+                </div>
+                <!-- Row 3: A row -->
+                <div class="key-row">
+                    <div class="key wide">⬇</div>
+                    <div class="key"><span class="label" data-char="A">A</span></div>
+                    <div class="key"><span class="label" data-char="S">S</span></div>
+                    <div class="key"><span class="label" data-char="D">D</span></div>
+                    <div class="key">F</div>
+                    <div class="key">G</div>
+                    <div class="key">H</div>
+                    <div class="key">J</div>
+                    <div class="key">K</div>
+                    <div class="key">L</div>
+                    <div class="key">;</div>
+                    <div class="key">'</div>
+                    <div class="key wide">Enter</div>
+                </div>
+                <!-- Row 4: Z row -->
+                <div class="key-row">
+                    <div class="key wider2">⇧</div>
+                    <div class="key">Z</div>
+                    <div class="key">X</div>
+                    <div class="key">C</div>
+                    <div class="key">V</div>
+                    <div class="key">B</div>
+                    <div class="key">N</div>
+                    <div class="key">M</div>
+                    <div class="key">,</div>
+                    <div class="key">.</div>
+                    <div class="key">/</div>
+                    <div class="key wider">⇧</div>
+                </div>
+                <!-- Row 5: Bottom row -->
+                <div class="key-row">
+                    <div class="key wider2">Ctrl</div>
+                    <div class="key wider2">⊞</div>
+                    <div class="key wider2">Alt</div>
+                    <div class="key extra-wide"><span class="label" data-char="Space">Space</span></div>
+                    <div class="key wider2">Alt</div>
+                    <div class="key wider2">Fn</div>
+                    <div class="key wider2">☰</div>
+                    <div class="key wider2">Ctrl</div>
+                </div>
+            </div>
+
+            <!-- Mouse & Mousepad -->
+            <div class="mousepad">
+                <img id="eShark-logo" src="../img/eShark-logo.png" alt="Mousepad Eshark logo">
+            </div>
+            <div class="mouse"></div>
+
+            <!-- Mug -->
+            <div class="mug">
+                <div class="steam"></div>
+                <div class="steam" style="left: 16px; animation-delay: 0.5s;"></div>
+                <div class="steam" style="left: 22px; animation-delay: 1s;"></div>
+            </div>
+
+            <!-- Desk -->
+            <div class="desk"></div>
+        </div>
+    </div>
+
+    <footer>&#169; 2025/26 Molnár Hanga Borbála | All rights reserved</footer>
+</body>
+
+</html>

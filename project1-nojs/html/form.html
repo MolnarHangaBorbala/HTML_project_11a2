@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form | Project1</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="../css/formstyle.css">
+    <link rel="shortcut icon" href="../img/programming.png" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <h3 class="typing">&gt;_BUG REPORT TERMINAL</h3>
+    </header>
+
+    <nav>
+        <a href="../index.html">Main Page</a> |
+        <a href="anim.html">Animation</a> |
+        <a href="form.html" class="selected">Form</a> |
+        <a href="table.html">Table</a> |
+        <a href="gallery.html">Gallery</a> |
+        <a href="media.html">Media</a>
+    </nav>
+
+    <div class="container">
+        <div class="form-container">
+            <div class="form-header">
+                <h2>&gt;&gt; DESCRIBE YOUR MALFUNCTION &lt;&lt;</h2>
+                <p class="status-line">&gt; STATUS: ACTIVE | QUEUE: 3 REPORTS | PRIORITY: HIGH</p>
+            </div>
+
+            <form id="bugReportForm">
+                <!-- Name -->
+                <div class="form-group">
+                    <label for="name">&gt; REPORTER_NAME:
+                        <span class="star">
+                            *
+                            <div class="tooltip">Required to fill out.</div>
+                        </span>
+                    </label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name..." required>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">&gt; EMAIL_ADDRESS: <span class="star">
+                            *
+                            <div class="tooltip">Required to fill out.</div>
+                        </span></label>
+                    <input type="email" id="email" name="email" placeholder="user@domain.com" required>
+                </div>
+
+                <!-- Bug type -->
+                <div class="form-group">
+                    <label for="bugType">&gt; BUG_TYPE: <span class="star">
+                            *
+                            <div class="tooltip">Required to fill out.</div>
+                        </span></label>
+                    <select id="bugType" name="bugType" required>
+                        <option value="">-- SELECT TYPE --</option>
+                        <option value="ui">UI/UX Issue</option>
+                        <option value="functionality">Functionality Error</option>
+                        <option value="performance">Performance Problem</option>
+                        <option value="security">Security Vulnerability</option>
+                        <option value="data">Data Loss/Corruption</option>
+                        <option value="crash">Application Crash</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <!-- Seriousness -->
+                <div class="form-group">
+                    <fieldset>
+                        <legend>
+                            <label class="main-label">&gt; SEVERITY_LEVEL: <span class="star">
+                                    *
+                                    <div class="tooltip">Required to fill out.</div>
+                                </span></label>
+                        </legend>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="severity" value="low" required>
+                                <span class="radio-text">[LOW] Minor issue</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="severity" value="medium" required>
+                                <span class="radio-text">[MEDIUM] Notable problem</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="severity" value="high" required>
+                                <span class="radio-text">[HIGH] Critical bug</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="severity" value="critical" required>
+                                <span class="radio-text">[CRITICAL] System failure</span>
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <!-- Affected Components -->
+                <div class="form-group">
+                    <fieldset>
+                        <legend>
+                            <label class="main-label">&gt; AFFECTED_COMPONENTS:</label>
+                        </legend>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="components" value="frontend">
+                                <span class="checkbox-text">Frontend/UI</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="components" value="backend">
+                                <span class="checkbox-text">Backend/API</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="components" value="database">
+                                <span class="checkbox-text">Database</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="components" value="auth">
+                                <span class="checkbox-text">Authentication</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="components" value="network">
+                                <span class="checkbox-text">Network/API Calls</span>
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <!-- Bug description -->
+                <div class="form-group">
+                    <label for="description">&gt; BUG_DESCRIPTION:</label>
+                    <textarea id="description" name="description" rows="6"
+                        placeholder="Describe the bug in detail... Steps to reproduce, expected behavior, actual behavior..."></textarea>
+                </div>
+
+                <!-- System Info -->
+                <div class="form-group">
+                    <label for="systemInfo">&gt; SYSTEM_INFO: <span class="star">
+                            *
+                            <div class="tooltip">Required to fill out.</div>
+                        </span></label>
+                    <input type="text" id="systemInfo" name="systemInfo"
+                        placeholder="OS, Browser, Version (e.g., Windows 11, Chrome 120)" required>
+                </div>
+
+                <!-- File Upload -->
+                <div class="form-group">
+                    <fieldset>
+                        <legend>
+                            <label for="screenshot">&gt; ATTACH_SCREENSHOT:</label>
+                        </legend>
+                        <input type="file" id="screenshot" name="screenshot" accept="image/*,.log,.txt">
+                        <span class="file-note">&gt; Accepted: .png, .jpg, .log, .txt</span>
+                    </fieldset>
+                </div>
+
+                <!-- Reproduce -->
+                <div class="form-group">
+                    <label class="checkbox-label single">
+                        <input type="checkbox" name="canReproduce" value="yes">
+                        <span class="checkbox-text">I can reproduce this bug consistently</span>
+                    </label>
+                </div>
+
+                <!-- Buttons -->
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">&gt;> SUBMIT REPORT</button>
+                    <button type="reset" class="btn-reset">&gt;> CLEAR FORM</button>
+                </div>
+
+                <div class="form-footer">
+                    <p>&gt; All bug reports are encrypted and sent to development team</p>
+                    <p>&gt; Response time: 24-48 hours | Priority bugs: &lt; 4 hours</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>&#169; 2025/26 Molnár Hanga Borbála | All rights reserved</footer>
+</body>
+
+</html>
