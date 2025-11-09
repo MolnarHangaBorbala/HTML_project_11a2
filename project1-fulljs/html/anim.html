@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animation | Project1</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="../css/animstyle.css">
+    <link rel="shortcut icon" href="../img/programming.png" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <h3 class="typing">&gt;_CSS ANIMATION</h3>
+    </header>
+
+    <nav>
+        <a href="../index.html">Main Page</a> |
+        <a href="anim.html" class="selected">Animation</a> |
+        <a href="form.html">Form</a> |
+        <a href="table.html">Table</a> |
+        <a href="gallery.html">Gallery</a> |
+        <a href="media.html">Media</a>
+    </nav>
+
+    <div class="container">
+        <div class="animation-container">
+            <!-- Background code effect -->
+            <div class="bg-code">
+                <div class="bg-line">01001000 01000001 01000011 01001011 01000101 01010010</div>
+                <div class="bg-line" style="top: 150px; animation-delay: -5s;">ACCESSING DATABASE... ENCRYPTED FILES
+                    FOUND...</div>
+                <div class="bg-line">NEURAL NETWORK INITIALIZED... RUNNING
+                    ALGORITHM...</div>
+            </div>
+
+            <!-- Shelf & Plant & Books-->
+            <div class="plant"></div>
+            <div class="plant-rim"></div>
+            <div class="plant-pot"></div>
+            <div class="book book1"></div>
+            <div class="book book2"></div>
+            <div class="book book3"></div>
+            <div class="book book4"></div>
+            <div class="shelf"></div>
+
+            <!-- Pictures -->
+            <div class="pic pic1">
+                <div class="frame frame1"></div>
+                <img id="img1" src="../img/frames/1.jpg" alt="">
+            </div>
+            <div class="pic pic2">
+                <div class="frame frame2"></div>
+                <img id="img2" src="../img/frames/2.jpg" alt="">
+            </div>
+            <div class="pic pic3">
+                <div class="frame frame3"></div>
+                <img id="img3" src="../img/frames/3.jpg" alt="">
+            </div>
+            <div class="pic pic4">
+                <div class="frame frame4"></div>
+                <img id="img4" src="../img/frames/4.jpg" alt="">
+            </div>
+            <div class="pic pic5">
+                <div class="frame frame5"></div>
+                <img id="img5" src="../img/frames/5.jfif" alt="">
+            </div>
+            <div class="pic pic6">
+                <div class="frame frame6"></div>
+                <img id="img6" src="../img/frames/6.jpg" alt="">
+            </div>
+
+            <!-- Desk clock -->
+            <div class="desk-clock">
+                <div class="digital-clock">
+                    <div class="time-display">
+                        <span class="digitH"></span>
+                        <span class="digitH"></span>
+                        <span class="separator">:</span>
+                        <span class="digitM"></span>
+                        <span class="digitM"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monitor -->
+            <div class="monitor">
+                <div class="screen">
+                    <div class="window1">
+                        <div class="title-bar1">
+                            <span class="minus1">−</span>
+                            <span class="fullscreen1">□</span>
+                            <span class="close1" onclick="closeWindow()">×</span>
+                        </div>
+                        <div class="code-line">&gt; System access: GRANTED</div>
+                        <div class="code-line">&gt; Running diagnostics...</div>
+                        <div class="code-line">&gt; [████████████] 100%</div>
+                        <div class="code-line">&gt; Status: ONLINE</div>
+                        <div class="code-line">&gt; Awaiting commands...</div>
+                        <div class="code-line typeable">&gt; <span id="text-here" tabindex="0"></span><span
+                                id="cursor">|</span>
+                        </div>
+                    </div>
+                    <div class="window2">
+                        <div class="title-bar2">
+                            <span class="minus2">−</span>
+                            <span class="fullscreen2">□</span>
+                            <span class="close2" onclick="closePaintWindow()">×</span>
+                        </div>
+
+                        <div class="paint-toolbar">
+                            <button class="tool selected" data-tool="brush">🖌️</button>
+                            <button class="tool" data-tool="eraser">🧽</button>
+                            <input type="color" id="colorPicker" value="#000000" />
+                            <button class="tool" id="clearCanvas">🗑️</button>
+                        </div>
+
+                        <canvas id="paintCanvas" width="200" height="150"></canvas>
+                    </div>
+                    <div class="window3">
+                        <div class="title-bar3">
+                            <span class="minus3">−</span>
+                            <span class="fullscreen3">□</span>
+                            <span class="close3">×</span>
+                        </div>
+                        <div class="music-content">
+                            <div class="left album-art">
+                                <img src="../img/music_cover_art/cover1.jpg" alt="Album Art">
+                            </div>
+                            <div class="right">
+                                <h4 id="songTitle">Lofi_Chill_Beats</h4>
+                                <p id="songArtist">DJ Zen</p>
+                                <div class="controls">
+                                    <button id="playPauseBtn">▶</button>
+                                    <button id="nextBtn">⏭</button>
+                                </div>
+                                <input type="range" id="progressBar" value="0" min="0" max="100">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="window4 file-manager">
+                        <div class="title-bar4">
+                            <span class="minus4">−</span>
+                            <span class="fullscreen4">□</span>
+                            <span class="close4">×</span>
+                        </div>
+
+                        <div class="file-manager-content">
+                            <!-- Sidebar -->
+                            <div class="sidebar">
+                                <h4>Quick Access</h4>
+                                <ul>
+                                    <li>_Desktop</li>
+                                    <li>_Documents</li>
+                                    <li>_Music</li>
+                                    <li>_Videos</li>
+                                    <li>_Pictures</li>
+                                    <li>_Downloads</li>
+                                </ul>
+
+                                <h4>Drives</h4>
+                                <ul>
+                                    <li>_Local Disk (C:)</li>
+                                    <li>_Data (D:)</li>
+                                </ul>
+                            </div>
+
+                            <!-- File area -->
+                            <div class="file-view">
+                                <div class="toolbar">
+                                    <input type="text" class="pathbar" value="C:\\Users\\You\\Documents" readonly>
+                                </div>
+
+                                <div class="file-grid">
+                                    <div class="file"><img src="../img/icons/folder.png"
+                                            alt="Folder"><span>Projects</span></div>
+                                    <div class="file"><img src="../img/icons/folder.png"
+                                            alt="Folder"><span>Photos</span></div>
+                                    <div class="file"><img src="../img/icons/file.png" alt="File"><span>notes.txt</span>
+                                    </div>
+                                    <div class="file"><img src="../img/icons/file.png"
+                                            alt="File"><span>resume.pdf</span></div>
+                                    <div class="file"><img src="../img/icons/file.png"
+                                            alt="File"><span>report.docx</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="window5">
+                        <div class="title-bar5">
+                            <span class="minus5">−</span>
+                            <span class="fullscreen5">□</span>
+                            <span class="close5">×</span>
+                        </div>
+                        <div class="settings-content">
+                            <h4>Settings</h4>
+                            <div class="setting-item">
+                                <label for="volume">Volume</label>
+                                <input type="range" id="volume" min="0" max="100" value="50">
+                            </div>
+                            <div class="setting-item">
+                                <label for="theme">Theme</label>
+                                <select id="theme">
+                                    <option value="dark">Dark</option>
+                                    <option value="light">Light</option>
+                                    <option value="neon">Neon</option>
+                                </select>
+                            </div>
+                            <div class="setting-item">
+                                <label>
+                                    <input type="checkbox" id="notifications" checked>
+                                    Enable Notifications
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Win & Search & Internet & Volume -->
+                    <div class="windows-window">
+                        <div class="power-option" data-action="sleep">Sleep</div>
+                        <div class="power-option" data-action="shutdown">Shut Down</div>
+                        <div class="power-option" data-action="restart">Restart</div>
+                    </div>
+                    
+                    <!-- Sleep/Off/Restart overlay -->
+                    <div class="sleep-screen"></div>
+
+                    <div class="search-window">
+                        <input type="text" id="searchInput" placeholder="Type to search...">
+                        <div class="results" id="searchResults"></div>
+                    </div>
+                    <div class="internet-window">
+                        <div class="internet-content">
+                            <h4>-INTERNET-</h4>
+                            <p>Status: <br> Connected ✅</p>
+                            <p>Speed: <br>120 Mbps ⬆️ <br> 45 Mbps ⬇️</p>
+                            <p>IP Address: <br> 192.168.1.100</p>
+                            <p>ISP: <br> FastNet</p>
+                            <p>Ping: <br> 24 ms</p>
+                            <p>Data Usage: <br> 3.5 GB / 10 GB</p>
+                            <p>Connection Type: Wi-Fi</p>
+                        </div>
+                    </div>
+                    <div class="volume-window">
+                        <div class="volume-content">
+                            <span class="volume-text">VOLUME</span>
+                            <input type="range" min="0" max="100" value="50">
+                        </div>
+                    </div>
+
+                    <!-- Tray & Icons -->
+                    <div class="tray">
+                        <span id="win-logo">⊞</span>
+                        <div class="app-logos">
+                            <span id="searchIcon">🔎</span>
+                            <span id="optionsIcon">⚙️</span>
+                            <span id="filesIcon">📁</span>
+                            <span id="paintIcon">🎨</span>
+                            <span id="cmdIcon">📟</span>
+                            <span id="musicIcon">🎵</span>
+                        </div>
+                        <span class="app-logos-right">
+                            <span id="internetIcon">🌐</span>
+                            <span id="volumeIcon">🔊</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Power Button -->
+            <div class="power-button"></div>
+
+            <!-- Lamp -->
+            <div id="lamp"></div>
+            <div id="lampbase"></div>
+
+            <!-- Keyboard -->
+            <div class="keyboard">
+                <!-- Row 1: Number row -->
+                <div class="key-row">
+                    <div class="key">~</div>
+                    <div class="key">1</div>
+                    <div class="key">2</div>
+                    <div class="key">3</div>
+                    <div class="key">4</div>
+                    <div class="key">5</div>
+                    <div class="key">6</div>
+                    <div class="key">7</div>
+                    <div class="key">8</div>
+                    <div class="key">9</div>
+                    <div class="key">#</div>
+                    <div class="key">&</div>
+                    <div class="key">@</div>
+                    <div class="key wide"><span class="label" data-char="⬅">⬅</span></div>
+                </div>
+                <!-- Row 2: Q row -->
+                <div class="key-row">
+                    <div class="key wide">⇄</div>
+                    <div class="key">Q</div>
+                    <div class="key">W</div>
+                    <div class="key key2"><span class="label" data-char="E">E</span></div>
+                    <div class="key">R</div>
+                    <div class="key key2"><span class="label" data-char="T">T</span></div>
+                    <div class="key">Y</div>
+                    <div class="key key2"><span class="label" data-char="U">U</span></div>
+                    <div class="key">I</div>
+                    <div class="key key2"><span class="label" data-char="O">O</span></div>
+                    <div class="key key2"><span class="label" data-char="P">P</span></div>
+                    <div class="key">[</div>
+                    <div class="key">]</div>
+                    <div class="key">\\</div>
+                </div>
+                <!-- Row 3: A row -->
+                <div class="key-row">
+                    <div class="key wide">⬇</div>
+                    <div class="key key2"><span class="label" data-char="A">A</span></div>
+                    <div class="key key2"><span class="label" data-char="S">S</span></div>
+                    <div class="key key2"><span class="label" data-char="D">D</span></div>
+                    <div class="key">F</div>
+                    <div class="key">G</div>
+                    <div class="key">H</div>
+                    <div class="key">J</div>
+                    <div class="key">K</div>
+                    <div class="key">L</div>
+                    <div class="key">;</div>
+                    <div class="key">'</div>
+                    <div class="key wide">Enter</div>
+                </div>
+                <!-- Row 4: Z row -->
+                <div class="key-row">
+                    <div class="key wider2">⇧</div>
+                    <div class="key">Z</div>
+                    <div class="key">X</div>
+                    <div class="key">C</div>
+                    <div class="key">V</div>
+                    <div class="key">B</div>
+                    <div class="key">N</div>
+                    <div class="key">M</div>
+                    <div class="key">,</div>
+                    <div class="key">.</div>
+                    <div class="key">/</div>
+                    <div class="key wider">⇧</div>
+                </div>
+                <!-- Row 5: Bottom row -->
+                <div class="key-row">
+                    <div class="key wider2">Ctrl</div>
+                    <div class="key wider2">⊞</div>
+                    <div class="key wider2">Alt</div>
+                    <div class="key key2 extra-wide"><span class="label" data-char="Space">Space</span></div>
+                    <div class="key wider2">Alt</div>
+                    <div class="key wider2">Fn</div>
+                    <div class="key wider2">☰</div>
+                    <div class="key wider2">Ctrl</div>
+                </div>
+            </div>
+
+            <!-- Mouse & Mousepad -->
+            <div class="mousepad">
+                <img id="eShark-logo" src="../img/eShark-logo.png" alt="Mousepad Eshark logo">
+            </div>
+            <div class="mouse"></div>
+
+            <!-- Speaker1 & Speaker2 -->
+            <div class="speaker speaker1"></div>
+            <div class="speaker speaker2"></div>
+
+            <!-- Mug -->
+            <div class="mug">
+                <div class="steam"></div>
+                <div class="steam" style="left: 16px; animation-delay: 0.5s;"></div>
+                <div class="steam" style="left: 22px; animation-delay: 1s;"></div>
+            </div>
+
+            <!-- Desk -->
+            <div class="desk"></div>
+        </div>
+    </div>
+
+    <footer>&#169; 2025/26 Molnár Hanga Borbála | All rights reserved</footer>
+
+    <script src="../js/animscr.js"></script>
+</body>
+
+</html>
