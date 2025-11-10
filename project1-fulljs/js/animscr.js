@@ -18,6 +18,22 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
+/* --- Watering Can --- */
+const wateringCan = document.querySelector('.watering-can');
+const drops = document.querySelector('.drops');
+const plantElements = document.querySelectorAll('.plant, .plant-rim, .plant-pot');
+
+plantElements.forEach(el => {
+    el.addEventListener('click', () => {
+        wateringCan.classList.add('pour');
+        drops.classList.add('active');
+        setTimeout(() => {
+            wateringCan.classList.remove('pour');
+            drops.classList.remove('active');
+        }, 2000);
+    });
+});
+
 /* --- Lamp --- */
 document.getElementById('lampbase').addEventListener('click', () => {
     document.getElementById('lamp').classList.toggle('off');
@@ -442,7 +458,7 @@ let noteInterval = null;
 function createMusicNote() {
     const note = document.createElement('div');
     note.className = 'music-note';
-    note.textContent = ['♩','♪','♫','♬'][Math.floor(Math.random() * 4)];
+    note.textContent = ['♩', '♪', '♫', '♬'][Math.floor(Math.random() * 4)];
 
     // random speaker
     const speakers = document.querySelectorAll('.speaker');
@@ -453,7 +469,7 @@ function createMusicNote() {
     const rect = speaker.getBoundingClientRect();
     const centerX = rect.left + (rect.width / 2);
     const startX = centerX + (Math.random() * 40 - 20); // +/- 20px wiggle
-    const startY = rect.top + window.scrollY - 8;top
+    const startY = rect.top + window.scrollY - 8; top
 
     note.style.left = `${startX + window.scrollX}px`;
     note.style.top = `${startY}px`;
@@ -674,15 +690,15 @@ windowsWindow.addEventListener('click', (e) => {
     const action = e.target.getAttribute('data-action');
     if (!action) return;
 
-    switch(action) {
+    switch (action) {
         case 'sleep':
-            enterSleepMode(); 
+            enterSleepMode();
             break;
         case 'shutdown':
-            shutdown(); 
+            shutdown();
             break;
         case 'restart':
-            restart(); 
+            restart();
             break;
     }
 
@@ -777,13 +793,13 @@ searchWindow.style.opacity = '0';
 searchWindow.style.pointerEvents = 'none';
 
 const trayApps = [
-    {id: 'optionsIcon', name: 'Settings'},
-    {id: 'filesIcon', name: 'File Manager'},
-    {id: 'paintIcon', name: 'Paint'},
-    {id: 'cmdIcon', name: 'Command Prompt'},
-    {id: 'musicIcon', name: 'Music'},
-    {id: 'internetIcon', name: 'Internet'},
-    {id: 'volumeIcon', name: 'Volume'}
+    { id: 'optionsIcon', name: 'Settings' },
+    { id: 'filesIcon', name: 'File Manager' },
+    { id: 'paintIcon', name: 'Paint' },
+    { id: 'cmdIcon', name: 'Command Prompt' },
+    { id: 'musicIcon', name: 'Music' },
+    { id: 'internetIcon', name: 'Internet' },
+    { id: 'volumeIcon', name: 'Volume' }
 ];
 
 // --- Toggle Search ---

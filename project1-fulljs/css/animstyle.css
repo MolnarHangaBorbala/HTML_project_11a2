@@ -1,7 +1,7 @@
 .animation-container {
     width: 930px;
     margin: 30px auto;
-    height: 680px;
+    height: 750px;
     background: #0d2b0d;
     border: 2px solid var(--border-color);
     position: relative;
@@ -556,10 +556,193 @@
     }
 }
 
+/* Watering Can & Water */
+.watering-can-wrapper {
+    position: absolute;
+    left: 90px;
+    top: 90px;
+    width: 70px;
+    height: 55px;
+    z-index: 100;
+}
+
+.watering-can {
+    position: absolute;
+    width: 70px;
+    height: 55px;
+    background: rgb(187, 30, 103);
+    border-radius: 30px 30px 10px 10px;
+    transform-origin: right center;
+    transform: rotate(0deg) scaleX(-1);
+    box-shadow:
+        0 0 10px rgba(0, 0, 0, 0.3),
+        inset 0 -10px 20px rgb(82, 1, 78);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 2;
+    opacity: 0;
+}
+
+.watering-can::after {
+    content: '';
+    position: absolute;
+    right: -20px;
+    top: 20px;
+    width: 30px;
+    height: 15px;
+    background: rgb(187, 30, 103);
+    border-radius: 5px;
+    transform: rotate(10deg);
+    box-shadow:
+        0 0 10px rgba(0, 0, 0, 0.3),
+        inset 0 0 10px black;
+}
+
+.watering-can::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: -15px;
+    width: 70px;
+    height: 60px;
+    border: 5px solid rgb(190, 22, 100);
+    border-right: none;
+    border-bottom: none;
+    border-radius: 50%;
+    box-sizing: border-box;
+    transform: rotate(-5deg);
+}
+
+.watering-can.pour {
+    transform: rotate(-25deg) scaleX(-1);
+    opacity: 1;
+}
+
+.drops {
+    position: absolute;
+    top: 35px;
+    left: 55px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.drops .drop {
+    position: absolute;
+    width: 6px;
+    height: 10px;
+    background: #66ccff;
+    border-radius: 50%;
+    opacity: 0;
+}
+
+.drops.active .drop {
+    animation: water 1s linear infinite;
+}
+
+.drops .drop:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.drops .drop:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.drops .drop:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.drops .drop:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+.drops .drop:nth-child(5) {
+    animation-delay: 0.8s;
+}
+
+@keyframes water {
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 1;
+    }
+
+    20% {
+        transform: translateY(10px) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(80px) scale(0.7);
+        opacity: 0;
+    }
+}
+
+.plant,
+.plant-rim,
+.plant-pot {
+    position: absolute;
+    cursor: pointer;
+}
+
+/* Sunflower on watering can */
+.sunflower {
+    position: relative;
+    margin: 10px auto;
+    height: 10px;
+    width: 10px;
+    filter: brightness(0.9);
+}
+
+.sunflower-center {
+    position: relative;
+    background-color: brown;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    border: 1px solid black;
+    z-index: 2;
+    transform: translate(30px, 20px);
+}
+
+.petal {
+    border: 1px solid black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 7px;
+    height: 13px;
+    background-color: gold;
+    border-radius: 50% 50% 0 0;
+    transform-origin: center bottom;
+    z-index: 1;
+}
+
+.petal:nth-child(1) {
+    transform: translate(-50%, -100%) rotate(0deg);
+}
+
+.petal:nth-child(2) {
+    transform: translate(-50%, -100%) rotate(60deg);
+}
+
+.petal:nth-child(3) {
+    transform: translate(-50%, -100%) rotate(120deg);
+}
+
+.petal:nth-child(4) {
+    transform: translate(-50%, -100%) rotate(180deg);
+}
+
+.petal:nth-child(5) {
+    transform: translate(-50%, -100%) rotate(240deg);
+}
+
+.petal:nth-child(6) {
+    transform: translate(-50%, -100%) rotate(300deg);
+}
+
 /* Shelf */
 .shelf {
     position: absolute;
-    top: 180px;
+    top: 240px;
     left: 80px;
     height: 10px;
     width: 300px;
@@ -594,7 +777,7 @@
 /* Plant */
 .plant {
     position: absolute;
-    top: 70px;
+    top: 130px;
     left: 130px;
     width: 10px;
     height: 60px;
@@ -645,7 +828,7 @@
 
 .plant-pot {
     position: absolute;
-    top: 110px;
+    top: 175px;
     left: 100px;
     height: 60px;
     width: 70px;
@@ -654,11 +837,12 @@
     border-radius: 2px;
     clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
     transform: rotate(180deg);
+    z-index: 100;
 }
 
 .plant-rim {
     position: absolute;
-    top: 110px;
+    top: 175px;
     left: 90px;
     height: 18px;
     width: 90px;
@@ -667,16 +851,18 @@
     border-radius: 2px;
     z-index: 10;
     box-shadow: 0px 5px 10px #00000034;
+    z-index: 101;
 }
 
 /* Books on shelf */
 .book {
     position: absolute;
-    top: 100px;
     width: 20px;
     height: 80px;
     border-radius: 2px;
     filter: grayscale(0.5);
+    perspective: 800px;
+    transform-origin: left center;
 }
 
 .book::after {
@@ -688,27 +874,163 @@
     height: 5px;
 }
 
-.book1 {
-    top: 128px;
-    left: 231px;
+.book-cover,
+.book-pages {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+    backface-visibility: hidden;
+}
+
+.book-cover {
     background-color: #4495ff;
-    rotate: -90deg;
+    border: 1px solid #0055cc;
+    transform-origin: left center;
+    transform: rotateY(0deg);
+    transition: transform 1s ease;
 }
 
+.book-pages {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fcf0c2;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Scribble lines */
+.book-pages::before,
+.book-pages::after {
+    content: "";
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    height: 1px;
+    background: black;
+    top: 20%;
+    box-shadow:
+        0 5px black,
+        0 10px black,
+        0 15px black,
+        0 20px black,
+        0 25px black,
+        0 30px black,
+        0 35px black,
+        0 40px black,
+        0 45px black,
+        0 50px black;
+    opacity: 0.3;
+}
+
+
+.book1-hitbox:hover .book-cover,
+.book2-hitbox:hover .book-cover,
+.book3-hitbox:hover .book-cover,
+.book4-hitbox:hover .book-cover {
+    transform: rotateY(-130deg);
+}
+
+.book::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background-color: #ff8800;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px #000000, 0 0 20px #000000;
+}
+
+/* book1 */
+.book1 {
+    right: -20px;
+    top: 30px;
+    transform: rotate(-90deg);
+    transition: transform 2s ease, right 1s ease, top 1s ease, width 1s ease;
+    z-index: 10;
+    transform-origin: bottom left;
+}
+
+.book1-hitbox:hover .book1,
+.book2-hitbox:hover .book2,
+.book3-hitbox:hover .book3 {
+    right: 0px;
+    transform: rotate(0deg);
+    top: 0px;
+    width: 100px;
+    z-index: 1000;
+}
+
+.book1-hitbox {
+    position: absolute;
+    /*background-color: red;*/
+    height: 110px;
+    width: 80px;
+    top: 127px;
+    left: 200px;
+}
+
+/* book2 */
 .book2 {
+    top: 97px;
+    left: 0px;
+    transition: right 1s ease, top 1s ease, width 1s ease;
+}
+
+.book2-hitbox {
+    position: absolute;
+    /*background-color: rgb(229, 255, 0);*/
+    height: 180px;
+    width: 20px;
+    top: 60px;
     left: 283px;
-    background-color: #8844ff;
 }
 
+/* book3 */
 .book3 {
-    left: 306px;
-    background-color: #ff6666;
+    top: 97px;
+    left: 0px;
+    transition: right 1s ease, top 1s ease, width 1s ease;
 }
 
+.book3-hitbox {
+    position: absolute;
+    /*background-color: rgb(0, 238, 255);*/
+    height: 180px;
+    width: 20px;
+    top: 60px;
+    left: 306px;
+}
+
+/* book4 */
 .book4 {
-    left: 334px;
-    background-color: #ffaa00;
-    rotate: -10deg;
+    top: 98px;
+    left: 6px;
+    transform: rotate(-10deg);
+    transition: transform 1s ease, left 1s ease, top 1s ease, width 1s ease;
+}
+
+.book4-hitbox {
+    position: absolute;
+    /*background-color: rgb(0, 255, 13);*/
+    height: 180px;
+    width: 35px;
+    top: 60px;
+    left: 330px;
+}
+
+.book4-hitbox:hover .book4 {
+    left: 0px;
+    transform: rotate(0deg);
+    top: 0px;
+    width: 100px;
 }
 
 /* Pictures & Frames & Images */
