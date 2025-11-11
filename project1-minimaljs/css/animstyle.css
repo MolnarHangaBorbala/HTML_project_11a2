@@ -930,6 +930,214 @@
     right: 30px;
 }
 
+/* Watering Can & Water */
+.watering-can-wrapper {
+    position: absolute;
+    left: 90px;
+    top: 90px;
+    width: 70px;
+    height: 55px;
+    z-index: 100;
+}
+
+.watering-can {
+    position: absolute;
+    width: 70px;
+    height: 55px;
+    background: rgb(187, 30, 103);
+    border-radius: 30px 30px 10px 10px;
+    transform-origin: right center;
+    transform: rotate(0deg) scaleX(-1);
+    box-shadow:
+        0 0 10px rgba(0, 0, 0, 0.3),
+        inset 0 -10px 20px rgb(82, 1, 78);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 2;
+    animation: pourCan 5s ease-in-out infinite;
+    opacity: 0;
+}
+
+.watering-can::after {
+    content: '';
+    position: absolute;
+    right: -20px;
+    top: 20px;
+    width: 30px;
+    height: 15px;
+    background: rgb(187, 30, 103);
+    border-radius: 5px;
+    transform: rotate(10deg);
+    box-shadow:
+        0 0 10px rgba(0, 0, 0, 0.3),
+        inset 0 0 10px black;
+}
+
+.watering-can::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: -15px;
+    width: 70px;
+    height: 60px;
+    border: 5px solid rgb(190, 22, 100);
+    border-right: none;
+    border-bottom: none;
+    border-radius: 50%;
+    box-sizing: border-box;
+    transform: rotate(-5deg);
+}
+
+.drops {
+    position: absolute;
+    top: 35px;
+    left: 55px;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    animation: dropCycle 5s linear infinite;
+}
+
+.drops .drop {
+    position: absolute;
+    width: 6px;
+    height: 10px;
+    background: #66ccff;
+    border-radius: 50%;
+    opacity: 0;
+    animation: water 1s linear infinite;
+}
+
+.drops .drop:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.drops .drop:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.drops .drop:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.drops .drop:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+.drops .drop:nth-child(5) {
+    animation-delay: 0.8s;
+}
+
+@keyframes pourCan {
+
+    0%,
+    60% {
+        opacity: 0;
+        transform: rotate(0deg) scaleX(-1);
+    }
+
+    70%,
+    90% {
+        opacity: 1;
+        transform: rotate(-25deg) scaleX(-1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotate(0deg) scaleX(-1);
+    }
+}
+
+@keyframes dropCycle {
+
+    0%,
+    60% {
+        opacity: 0;
+    }
+
+    70%,
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes water {
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 1;
+    }
+
+    20% {
+        transform: translateY(10px) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(80px) scale(0.7);
+        opacity: 0;
+    }
+}
+
+/* Sunflower on watering can */
+.sunflower {
+    position: relative;
+    margin: 10px auto;
+    height: 10px;
+    width: 10px;
+    filter: brightness(0.9);
+}
+
+.sunflower-center {
+    position: relative;
+    background-color: brown;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    border: 1px solid black;
+    z-index: 2;
+    transform: translate(30px, 20px);
+}
+
+.petal {
+    border: 1px solid black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 7px;
+    height: 13px;
+    background-color: gold;
+    border-radius: 50% 50% 0 0;
+    transform-origin: center bottom;
+    z-index: 1;
+}
+
+.petal:nth-child(1) {
+    transform: translate(-50%, -100%) rotate(0deg);
+}
+
+.petal:nth-child(2) {
+    transform: translate(-50%, -100%) rotate(60deg);
+}
+
+.petal:nth-child(3) {
+    transform: translate(-50%, -100%) rotate(120deg);
+}
+
+.petal:nth-child(4) {
+    transform: translate(-50%, -100%) rotate(180deg);
+}
+
+.petal:nth-child(5) {
+    transform: translate(-50%, -100%) rotate(240deg);
+}
+
+.petal:nth-child(6) {
+    transform: translate(-50%, -100%) rotate(300deg);
+}
+
 /* Plant */
 .plant {
     position: absolute;
