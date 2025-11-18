@@ -7,7 +7,7 @@
 
 .gallery-container {
     column-count: 3;
-    column-gap: 20px;
+    column-gap: 30px;
     max-width: 1200px;
     margin: 30px auto;
     background: var(--section-bg-color);
@@ -17,88 +17,128 @@
     border-radius: 5px;
 }
 
-.gallery-container:hover div {
-    opacity: 0.5;
-}
-
-/* ---- Image Cards ---- */
+/* Image Cards */
 .gallery-container div {
     display: inline-block;
-    width: 100%;
     margin-bottom: 20px;
     transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
-    border-radius: 50px;
-    transform: rotate(calc(-5deg * var(--rand)));
+    transform-origin: top center;
 }
-
-.gallery-container div:nth-child(1) {
-    --rand: 0.8;
-}
-
-.gallery-container div:nth-child(2) {
-    --rand: -0.7;
-}
-
-.gallery-container div:nth-child(3) {
-    --rand: 0.9;
-}
-
-.gallery-container div:nth-child(4) {
-    --rand: -0.5;
-}
-
-.gallery-container div:nth-child(5) {
-    --rand: 0.6;
-}
-
-.gallery-container div:nth-child(6) {
-    --rand: -0.8;
-}
-
-.gallery-container div:nth-child(7) {
-    --rand: 0.7;
-}
-
-.gallery-container div:nth-child(8) {
-    --rand: -0.6;
-}
-
-.gallery-container div:nth-child(9) {
-    --rand: 0.85;
-}
-
-.gallery-container div:nth-child(10) {
-    --rand: -0.9;
-}
-
-.gallery-container div:nth-child(11) {
-    --rand: 0.65;
-}
-
-.gallery-container div:nth-child(12) {
-    --rand: -0.75;
-}
-
 
 .gallery-container div:hover {
-    transform: scale(1.05) rotate(1deg) translateY(0px);
-    opacity: 1;
-    box-shadow: 0px 0px 40px 15px rgb(0, 0, 0);
-    z-index: 10;
+    transform: rotate(3deg);
+    z-index: 100;
 }
 
-/* ---- Images ---- */
+/* Images */
 .gallery-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
     transition: transform 0.6s ease, border-radius 0.5s ease;
-    border-radius: 15px;
+    border-radius: 5px;
+    border: 1px solid #44444485;
 }
 
-.gallery-container div:hover img {
-    transform: scale(1.1);
-    filter: brightness(0.8);
-    border-radius: 0px;
+/* Frames */
+.gallery-container>div {
+    position: relative;
+    padding-top: 40px;
+}
+
+.gallery-container>div .img-wrapper {
+    background: #000000;
+    padding: 10px;
+    border: 4px solid #3d3d3d;
+    border-radius: 8px;
+    box-shadow:
+        0 0 12px rgba(0, 0, 0, 0.4),
+        inset 0 0 8px rgba(255, 255, 255, 0.05);
+    z-index: 100;
+    position: relative;
+    box-shadow: 0 0 20px black;
+}
+
+/* Glass */
+.img-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.171), rgba(255, 255, 255, 0) 60%);
+    pointer-events: none;
+    mix-blend-mode: lighten;
+    z-index: 10;
+    transition: opacity 0.4s ease;
+}
+
+.img-wrapper:hover::before {
+    opacity: 0.8;
+}
+
+/* NAIL */
+.gallery-container>div::before {
+    content: "×";
+    color: #414141;
+    text-shadow: none;
+    text-align: center;
+    line-height: 11px;
+    font-size: 20px;
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    width: 13px;
+    height: 13px;
+    background: linear-gradient(145deg, #acacac, #4b4b4b);
+    border-radius: 50%;
+    border: 2px solid #000000;
+    transform: translateX(-50%);
+    z-index: 20;
+    box-shadow:
+        0 2px 3px rgba(0, 0, 0, 0.4),
+        inset 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+/* STRING */
+.gallery-container>div::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    border-left: none;
+    border-bottom: none;
+    border-right: 3px solid #bdbdbd;
+    border-top: 3px solid #bbbbbb;
+    border-radius: 7px;
+    opacity: 0.75;
+    transform: translateX(-50%) rotate(-45deg);
+    pointer-events: none;
+}
+
+/* Tooltip */
+.img-wrapper .tooltip {
+    position: absolute;
+    bottom: 0;
+    left: 23%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(0, 0, 0, 0.85);
+    color: #00ff0d;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.img-wrapper:hover .tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
 }
