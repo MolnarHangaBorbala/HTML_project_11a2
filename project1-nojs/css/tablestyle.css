@@ -72,17 +72,21 @@ table thead tr th {
 }
 
 .L {
+    text-shadow: greenyellow 0 0 10px !important;
     color: greenyellow !important;
 }
 
 .M {
+    text-shadow: yellow 0 0 10px !important;
     color: yellow !important;
 }
 
 .H {
+    text-shadow: orange 0 0 10px !important;
     color: rgb(255, 123, 0) !important;
 }
 
 .C {
+    text-shadow: red 0 0 10px !important;
     color: rgb(255, 0, 0) !important;
 }
