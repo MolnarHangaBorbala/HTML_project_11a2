@@ -1008,7 +1008,7 @@
 }
 
 .drops .drop:nth-child(1) {
-    animation-delay: 0s;
+    animation-delay: 0.1s;
 }
 
 .drops .drop:nth-child(2) {
