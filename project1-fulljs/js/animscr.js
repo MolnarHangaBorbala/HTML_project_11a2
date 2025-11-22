@@ -1,4 +1,4 @@
-/* --- Clock --- */
+/* Clock */
 const hour = document.querySelectorAll('.digitH');
 const minute = document.querySelectorAll('.digitM');
 
@@ -18,7 +18,7 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
-/* --- Watering Can --- */
+/* Watering Can */
 const wateringCan = document.querySelector('.watering-can');
 const drops = document.querySelector('.drops');
 const plantElements = document.querySelectorAll('.plant, .plant-rim, .plant-pot');
@@ -34,12 +34,60 @@ plantElements.forEach(el => {
     });
 });
 
-/* --- Lamp --- */
+/* Lamp */
 document.getElementById('lampbase').addEventListener('click', () => {
     document.getElementById('lamp').classList.toggle('off');
 });
 
-/* --- Window Drag + Focus --- */
+// Book3 rotation on hovering book4
+const hitbox4 = document.querySelector('.book4-hitbox');
+const book3 = document.querySelector('.book3');
+
+hitbox4.addEventListener('mouseenter', () => {
+    book3.style.transform = 'rotate(-10deg)';
+    book3.style.left = '5px';
+});
+hitbox4.addEventListener('mouseleave', () => {
+    book3.style.transform = '';
+    book3.style.left = '0.5px';
+});
+
+// Book4 rotation on hovering book3
+const hitbox3 = document.querySelector('.book3-hitbox');
+const book4 = document.querySelector('.book4');
+
+hitbox3.addEventListener('mouseenter', () => {
+    book4.style.transform = 'rotate(0deg)';
+});
+hitbox3.addEventListener('mouseleave', () => {
+    book4.style.transform = 'rotate(-10deg)';
+});
+
+// Book2 rotation on hovering book1
+const hitbox1 = document.querySelector('.book1-hitbox');
+const book2 = document.querySelector('.book2');
+
+hitbox1.addEventListener('mouseenter', () => {
+    book2.style.transform = 'rotate(7deg)';
+    book2.style.left = '-3px';
+});
+hitbox1.addEventListener('mouseleave', () => {
+    book2.style.transform = 'rotate(0deg)';
+    book2.style.left = '0px';
+});
+
+// Book1 slide on hovering book2
+const hitbox2 = document.querySelector('.book2-hitbox');
+const book1 = document.querySelector('.book1');
+
+hitbox2.addEventListener('mouseenter', () => {
+    book1.style.right = '-43px';
+});
+hitbox2.addEventListener('mouseleave', () => {
+    book1.style.right = '-20px';
+});
+
+/* Window Drag + Focus */
 const windows = document.querySelectorAll('.window1, .window2, .window3, .window4, .window5');
 let highestZ = 10;
 let activeWindow = null;
@@ -63,6 +111,7 @@ windows.forEach(windowEl => {
             offsetX = e.clientX - windowEl.offsetLeft;
             offsetY = e.clientY - windowEl.offsetTop;
             windowEl.classList.add('dragging');
+            windowEl.style.transition = 'opacity 0.3s ease, height 0.2s ease, width 0.2s ease';
         });
     });
 
@@ -73,21 +122,129 @@ windows.forEach(windowEl => {
 
         const screen = document.querySelector('.screen');
         if (screen) {
-            const maxX = screen.clientWidth - windowEl.offsetWidth;
-            const maxY = screen.clientHeight - windowEl.offsetHeight;
-            x = Math.max(0, Math.min(x, maxX));
-            y = Math.max(0, Math.min(y, maxY));
+            const winW = windowEl.offsetWidth;
+            const winH = windowEl.offsetHeight;
+            const minX = -Math.floor(winW * 0.5);
+            const maxX = screen.clientWidth - Math.floor(winW * 0.5);
+            const minY = 0;
+            const maxY = screen.clientHeight - Math.floor(winH * 0.5);
+
+            x = Math.max(minX, Math.min(x, maxX));
+            y = Math.max(minY, Math.min(y, maxY));
         }
 
         windowEl.style.left = x + 'px';
         windowEl.style.top = y + 'px';
     });
-
     document.addEventListener('mouseup', () => {
-        isDragging = false;
-        windowEl.classList.remove('dragging');
+        if (isDragging) {
+            isDragging = false;
+            windowEl.classList.remove('dragging');
+            windowEl.style.transition = 'opacity 0.3s ease, height 0.2s ease, width 0.2s ease, top 0.2s ease, left 0.2s ease';
+        }
     });
 });
+
+/* FULLSCREEN WINDOW */
+function enableFullscreen(buttonSelector, windowSelector, titleSelector) {
+    const btn = document.querySelector(buttonSelector);
+    const win = document.querySelector(windowSelector);
+    const titleBar = win.querySelector(titleSelector);
+
+    let isFullscreen = false;
+    let wasDragging = false;
+    let prev = {};
+
+    function goFullscreen() {
+        prev = {
+            left: win.style.left,
+            top: win.style.top,
+            width: win.style.width,
+            height: win.style.height
+        };
+
+        win.classList.add("fullscreen-anim");
+        win.style.left = "0";
+        win.style.top = "0";
+        win.style.width = "305px";
+        win.style.height = "165px";
+
+        titleBar.style.width = "305px";
+
+        win.classList.add("fullscreen");
+        btn.textContent = "⛶";
+        isFullscreen = true;
+
+        setTimeout(() => win.classList.remove("fullscreen-anim"), 300);
+    }
+
+    function exitFullscreen() {
+        win.classList.add("fullscreen-anim");
+
+        win.style.left = prev.left;
+        win.style.top = prev.top;
+        win.style.width = prev.width;
+        win.style.height = prev.height;
+
+        titleBar.style.width = "190px";
+
+        win.classList.remove("fullscreen");
+        btn.textContent = "□";
+        isFullscreen = false;
+
+        setTimeout(() => win.classList.remove("fullscreen-anim"), 300);
+    }
+    btn.addEventListener("click", () => {
+        if (!isFullscreen) goFullscreen();
+        else exitFullscreen();
+    });
+    titleBar.addEventListener("dblclick", () => {
+        if (isFullscreen) exitFullscreen();
+        else goFullscreen();
+    });
+    let dragDetect = false;
+
+    titleBar.addEventListener("mousedown", (e) => {
+        dragDetect = false;
+        let startX = e.clientX;
+        let startY = e.clientY;
+
+        if (
+            e.target.closest(".close1, .close2, .close3, .close4, .close5, " +
+                ".minus1, .minus2, .minus3, .minus4, .minus5, " +
+                ".fullscreen1, .fullscreen2, .fullscreen3, .fullscreen4, .fullscreen5")
+        ) {
+            return;
+        }
+        function detectDrag(ev) {
+            if (dragDetect) return;
+            if (Math.abs(ev.clientX - startX) > 4 || Math.abs(ev.clientY - startY) > 4) {
+                dragDetect = true;
+                window.removeEventListener("mousemove", detectDrag);
+
+                if (isFullscreen) {
+                    exitFullscreen();
+                }
+            }
+        }
+        window.addEventListener("mousemove", detectDrag);
+        window.addEventListener("mouseup", () => {
+            window.removeEventListener("mousemove", detectDrag);
+        }, { once: true });
+    });
+
+    document.addEventListener("mousemove", () => {
+        if (wasDragging) {
+            wasDragging = false;
+        }
+    });
+}
+
+enableFullscreen(".fullscreen1", ".window1", ".title-bar1");
+enableFullscreen(".fullscreen2", ".window2", ".title-bar2");
+enableFullscreen(".fullscreen3", ".window3", ".title-bar3");
+enableFullscreen(".fullscreen4", ".window4", ".title-bar4");
+enableFullscreen(".fullscreen5", ".window5", ".title-bar5");
 
 /* Mouse movement */
 const screen = document.querySelector('.screen');
@@ -118,7 +275,7 @@ screen.addEventListener('mouseleave', () => {
     setTimeout(() => (mouse.style.transition = ''), 300);
 });
 
-/* --- CMD Window --- */
+/* CMD Window */
 const CMDWindow = document.querySelector('.window1');
 const CMDIcon = document.getElementById('cmdIcon');
 const closeCMD = document.querySelector('.close1');
@@ -204,7 +361,7 @@ document.querySelectorAll('.key').forEach(key => {
     });
 });
 
-/* --- Paint Window --- */
+/* Paint Window */
 const paintWindow = document.querySelector('.window2');
 const paintIcon = document.getElementById('paintIcon');
 const closePaint = document.querySelector('.close2');
@@ -284,7 +441,7 @@ paintIcon.addEventListener('click', togglePaint);
 minimizePaint.addEventListener('click', togglePaint);
 closePaint.addEventListener('click', closePaintfunc);
 
-/* --- Music Window --- */
+/* Music Window */
 const musicWindow = document.querySelector('.window3');
 const musicIcon = document.getElementById('musicIcon');
 const closeMusic = document.querySelector('.close3');
@@ -386,7 +543,7 @@ musicIcon.addEventListener('click', toggleMusic);
 minimizeMusic.addEventListener('click', toggleMusic);
 closeMusic.addEventListener('click', closeMusicFunc);
 
-/* --- Player controls --- */
+/* Player controls */
 playPauseBtn.addEventListener('click', () => {
     if (isPlaying) {
         musicPlayer.pause();
@@ -419,7 +576,7 @@ function updateProgressFill() {
 }
 progressBar.addEventListener('input', updateProgressFill);
 
-// --- Volume Control ---
+// Volume Control
 const volumeSlider = document.querySelector('.volume-window input[type="range"]');
 const settingsVolume = document.getElementById('volume');
 
@@ -439,7 +596,7 @@ if (settingsVolume) {
     });
 }
 
-// --- Speakers ---
+// Speakers
 const speakers = document.querySelectorAll('.speaker');
 
 function updateSpeakerVisual(isPlaying) {
@@ -452,7 +609,7 @@ function updateSpeakerVisual(isPlaying) {
 musicPlayer.addEventListener('play', () => updateSpeakerVisual(true));
 musicPlayer.addEventListener('pause', () => updateSpeakerVisual(false));
 
-// --- Music Notes ---
+// Music Notes
 let noteInterval = null;
 
 function createMusicNote() {
@@ -726,7 +883,7 @@ const powerButton = document.querySelector('.power-button');
 let isSleeping = false;
 let isOff = false;
 
-// --- Enter sleep ---
+// Enter sleep
 function enterSleepMode() {
     sleepScreen.classList.add('active');
     isSleeping = true;
@@ -736,7 +893,7 @@ function enterSleepMode() {
     document.activeElement.blur();
 }
 
-// --- Shutdown ---
+// Shutdown
 function shutdown() {
     sleepScreen.classList.add('active');
     sleepScreen.style.backgroundColor = '#000';
@@ -747,7 +904,7 @@ function shutdown() {
     clearInterval(noteInterval);
 }
 
-// --- Restart ---
+// Restart
 function restart() {
     sleepScreen.classList.add('active');
     sleepScreen.innerHTML = '<p style="color:gray;text-align:center;margin-top:40%;">Restarting...</p>';
@@ -762,7 +919,7 @@ function restart() {
     }, 2000);
 }
 
-// --- Wake up from sleep ---
+// Wake up from sleep
 function wakeUp() {
     if (!isSleeping || isOff) return;
     sleepScreen.classList.remove('active');
@@ -783,7 +940,7 @@ powerButton.addEventListener('click', () => {
     }
 });
 
-/* --- Search Window --- */
+/* Search Window */
 const searchWindow = document.querySelector('.search-window');
 const searchIcon = document.getElementById('searchIcon');
 const searchInput = document.getElementById('searchInput');
@@ -802,7 +959,7 @@ const trayApps = [
     { id: 'volumeIcon', name: 'Volume' }
 ];
 
-// --- Toggle Search ---
+// Toggle Search
 function toggleSearch() {
     const isOpen = searchWindow.style.opacity === '1';
     closeVolumeFunc();
@@ -820,7 +977,7 @@ function toggleSearch() {
     }
 }
 
-// --- Close Search ---
+// Close Search
 function closeSearch() {
     searchWindow.style.opacity = '0';
     searchWindow.style.pointerEvents = 'none';
@@ -839,7 +996,7 @@ screen.addEventListener('click', (e) => {
     }
 });
 
-// --- Live search ---
+// Live search
 searchInput.addEventListener('input', () => {
     const query = searchInput.value.toLowerCase();
     const matches = trayApps.filter(app => app.name.toLowerCase().includes(query));
@@ -848,7 +1005,7 @@ searchInput.addEventListener('input', () => {
         .join('');
 });
 
-// --- Click result to open app ---
+// Click result to open app
 searchResults.addEventListener('click', (e) => {
     const targetId = e.target.getAttribute('data-id');
     if (!targetId) return;

@@ -9,6 +9,7 @@
     column-count: 3;
     column-gap: 30px;
     max-width: 1200px;
+    height: 1600px;
     margin: 30px auto;
     background: var(--section-bg-color);
     border: 2px solid var(--border-color);
@@ -101,14 +102,31 @@
     box-shadow:
         0 2px 3px rgba(0, 0, 0, 0.4),
         inset 0 1px 2px rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+/* Nail animation */
+@keyframes nailSpin {
+    0% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translateX(-50%) rotate(1080deg);
+    }
+}
+
+.gallery-container>div.nail-wobble::before {
+    animation: nailSpin 1s ease-out forwards;
+    transform-origin: center center;
 }
 
 /* STRING */
 .gallery-container>div::after {
     content: "";
     position: absolute;
-    top: 20px;
-    left: 50%;
+    top: 35px;
+    left: 36.5%;
     width: 100px;
     height: 100px;
     border-left: none;
@@ -116,9 +134,20 @@
     border-right: 3px solid #bdbdbd;
     border-top: 3px solid #bbbbbb;
     border-radius: 7px;
-    opacity: 0.75;
+    opacity: 0;
     transform: translateX(-50%) rotate(-45deg);
     pointer-events: none;
+    transition: opacity 0.5s ease, top 0.5s ease;
+}
+
+.gallery-container>div.fallen::after {
+    opacity: 0;
+    top: 100px;
+}
+
+.gallery-container>div.show-string::after {
+    opacity: 0.75;
+    top: 35px;
 }
 
 /* Tooltip */
@@ -138,7 +167,19 @@
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-.img-wrapper:hover .tooltip {
+/* Hide nail & string */
+.gallery-container>div::before,
+.gallery-container>div::after {
     opacity: 1;
-    transform: translateX(-50%) translateY(0);
+    transition: opacity 0.5s ease;
+    transform-origin: top center;
+}
+
+.gallery-container>div.fallen::before {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.gallery-container > div.falling {
+    transition: transform 0.7s ease-in;
 }

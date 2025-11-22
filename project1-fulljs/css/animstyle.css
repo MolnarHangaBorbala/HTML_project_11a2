@@ -951,7 +951,7 @@
 /* book1 */
 .book1 {
     right: -20px;
-    top: 30px;
+    top: 10px;
     transform: rotate(-90deg);
     transition: transform 2s ease, right 1s ease, top 1s ease, width 1s ease;
     z-index: 10;
@@ -971,17 +971,17 @@
 .book1-hitbox {
     position: absolute;
     /*background-color: red;*/
-    height: 110px;
-    width: 80px;
-    top: 127px;
-    left: 200px;
+    height: 90px;
+    width: 100px;
+    top: 147px;
+    left: 180px;
 }
 
 /* book2 */
 .book2 {
     top: 97px;
     left: 0px;
-    transition: right 1s ease, top 1s ease, width 1s ease;
+    transition: right 1s ease, top 1s ease, width 1s ease, left 0.5s ease, transform 1s ease;
 }
 
 .book2-hitbox {
@@ -996,8 +996,8 @@
 /* book3 */
 .book3 {
     top: 97px;
-    left: 0px;
-    transition: right 1s ease, top 1s ease, width 1s ease;
+    left: 0.5px;
+    transition: transform 1s ease, right 1s ease, top 1s ease, width 1s ease, left 0.5s ease;
 }
 
 .book3-hitbox {
@@ -1561,6 +1561,9 @@
     z-index: 10;
     justify-content: flex-end;
     display: flex;
+    border-bottom: 1px solid black;
+    transition: width 0.2s ease;
+    ;
 }
 
 .title-bar1.dragging,
@@ -1603,7 +1606,7 @@
 .window5,
 .volume-window,
 .internet-window {
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, height 0.2s ease, width 0.2s ease, top 0.2s ease, left 0.2s ease;
     pointer-events: none;
     opacity: 0;
 }
@@ -1667,6 +1670,7 @@
     background: #aaa;
     border-bottom: 1px solid #777;
     margin-top: 10px;
+    height: 20px;
 }
 
 .paint-toolbar .tool {
@@ -1676,8 +1680,8 @@
     cursor: pointer;
     border-radius: 3px;
     transition: background 0.2s;
-    height: 25px;
-    width: 25px;
+    height: 20px;
+    width: 20px;
 }
 
 .paint-toolbar .tool:hover {
