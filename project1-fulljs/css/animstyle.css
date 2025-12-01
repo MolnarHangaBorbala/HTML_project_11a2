@@ -675,6 +675,55 @@
     }
 }
 
+/* Water Overflow Animation */
+.water-overflow1,
+.water-overflow2 {
+    position: absolute;
+    background: red;
+    border-radius: 4px;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.water-overflow1 {
+    top: 170px;
+    left: 100px;
+    width: 70px;
+    height: 15px;
+}
+
+.water-overflow1.active {
+    animation: flow1 2s forwards;
+}
+
+@keyframes flow1 {
+    0% {
+        top: 60px;
+        left: 100px;
+        height: 0;
+        opacity: 1;
+    }
+
+    30% {
+        height: 20px;
+    }
+
+    60% {
+        top: 165px;
+        left: 100px;
+        width: 70px;
+        height: 15px;
+    }
+
+    100% {
+        top: 200px;
+        left: 140px;
+        height: 60px;
+        opacity: 0;
+    }
+}
+
 .plant,
 .plant-rim,
 .plant-pot {
@@ -1186,14 +1235,15 @@
 /* Power Button */
 .power-button {
     position: absolute;
-    bottom: 225px;
+    bottom: 0px;
     width: 15px;
     height: 7px;
-    right: 353px;
+    right: 6px;
     background-color: rgb(170, 0, 0);
-    z-index: 100000;
+    z-index: 10000;
     border: 1px black solid;
     cursor: pointer;
+    border-radius: 50px;
     transition: background-color 0.2s ease-in-out;
 }
 
@@ -1226,6 +1276,36 @@
     background: black;
     border: 2px solid var(--border-color);
     border-top: none;
+}
+
+/* Overlay */
+.monitor-zoom-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.monitor-zoom-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* LG logo */
+#LG-logo {
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 10px;
+    filter: brightness(0.8);
+    cursor: pointer;
+}
+
+#LG-logo:hover {
+    filter: brightness(1.2);
 }
 
 .screen {
@@ -1698,6 +1778,74 @@
     background: #fff;
     border: 1px solid #555;
     cursor: crosshair;
+}
+
+/* Size */
+.size-dropdown {
+    position: relative;
+    width: 40px;
+}
+
+#sizeDropdownBtn {
+    width: 100%;
+    padding: 4px;
+    height: 15px;
+    top: 50%;
+    background: #f3f3f3;
+    border: 1px solid #999;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sizeDropdownBtn:hover {
+    background: #e2e2e2;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    background: #fefefe;
+    border: 1px solid #aaa;
+    width: 40px;
+    z-index: 10000;
+}
+
+.dropdown-item {
+    padding: 6px 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
+
+.dropdown-item:hover {
+    background: #d9e6ff;
+    border-left: 3px solid #4a90e2;
+}
+
+.line {
+    width: 40px;
+    background: black;
+    border-radius: 2px;
+}
+
+.l1 {
+    height: 2px;
+}
+
+.l2 {
+    height: 4px;
+}
+
+.l3 {
+    height: 6px;
+}
+
+.l4 {
+    height: 8px;
 }
 
 /* window 3 - music */

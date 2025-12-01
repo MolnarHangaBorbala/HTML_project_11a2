@@ -18,19 +18,57 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
-/* Watering Can */
+/* Plant Watering */
 const wateringCan = document.querySelector('.watering-can');
 const drops = document.querySelector('.drops');
 const plantElements = document.querySelectorAll('.plant, .plant-rim, .plant-pot');
+const pot = document.querySelector('.plant-pot');
+
+let clickCount = 0;
 
 plantElements.forEach(el => {
     el.addEventListener('click', () => {
         wateringCan.classList.add('pour');
         drops.classList.add('active');
+
         setTimeout(() => {
             wateringCan.classList.remove('pour');
             drops.classList.remove('active');
         }, 2000);
+
+        clickCount++;
+
+        if (clickCount >= 5) {
+            setTimeout(() => {
+                pot.classList.add('pot-overflow');
+            }, 1800);
+        }
+    });
+});
+
+const waterOverflow = document.querySelector('.water-overflow');
+
+plantElements.forEach(el => {
+    el.addEventListener('click', () => {
+        wateringCan.classList.add('pour');
+        drops.classList.add('active');
+
+        setTimeout(() => {
+            wateringCan.classList.remove('pour');
+            drops.classList.remove('active');
+        }, 2000);
+
+        clickCount++;
+
+        if (clickCount >= 5) {
+            pot.classList.add('pot-overflow');
+            waterOverflow.classList.add('active');
+
+            setTimeout(() => {
+                waterOverflow.classList.remove('active');
+                clickCount = 0;
+            }, 2000);
+        }
     });
 });
 
@@ -371,6 +409,9 @@ const ctx = canvas.getContext('2d');
 const colorPicker = document.getElementById('colorPicker');
 const clearCanvas = document.getElementById('clearCanvas');
 const tools = document.querySelectorAll('.tool');
+const btn = document.getElementById('sizeDropdownBtn');
+const menu = document.getElementById('sizeDropdownMenu');
+const preview = document.getElementById('currentSizePreview');
 
 paintIcon.style.backgroundColor = 'transparent';
 paintWindow.style.opacity = 0;
@@ -378,6 +419,25 @@ paintWindow.style.opacity = 0;
 let drawing = false;
 let currentTool = 'brush';
 let color = '#000';
+let size = 3;
+
+btn.addEventListener('click', () => {
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+});
+
+document.querySelectorAll('.dropdown-item').forEach(item => {
+    item.addEventListener('click', () => {
+        size = parseInt(item.dataset.size);
+        preview.className = 'line l' + (size === 1 ? 1 : size === 3 ? 2 : size === 5 ? 3 : 4);
+        menu.style.display = "none";
+    });
+});
+
+document.addEventListener('click', e => {
+    if (!e.target.closest('.size-dropdown')) {
+        menu.style.display = "none";
+    }
+});
 
 /* Drawing functionality */
 canvas.addEventListener('mousedown', e => {
@@ -389,13 +449,15 @@ canvas.addEventListener('mouseup', () => drawing = false);
 canvas.addEventListener('mouseout', () => drawing = false);
 canvas.addEventListener('mousemove', e => {
     if (!drawing) return;
+
     if (currentTool === 'brush') {
         ctx.strokeStyle = color;
-        ctx.lineWidth = 2;
+        ctx.lineWidth = size;
+        ctx.lineCap = "round";
         ctx.lineTo(e.offsetX, e.offsetY);
         ctx.stroke();
     } else if (currentTool === 'eraser') {
-        ctx.clearRect(e.offsetX - 4, e.offsetY - 4, 8, 8);
+        ctx.clearRect(e.offsetX - size/2, e.offsetY - size/2, size, size);
     }
 });
 

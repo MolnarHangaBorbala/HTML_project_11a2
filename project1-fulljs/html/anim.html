@@ -61,6 +61,9 @@
             <div class="plant"></div>
             <div class="plant-rim"></div>
             <div class="plant-pot"></div>
+            <div class="water-overflow1"></div>
+            <div class="water-overflow2"></div>
+
             <div class="book1-hitbox">
                 <div class="book book1">
                     <div class="book-cover"></div>
@@ -152,10 +155,29 @@
                         </div>
 
                         <div class="paint-toolbar">
+                            <button class="tool" id="clearCanvas">🗑️</button>
                             <button class="tool selected" data-tool="brush">🖌️</button>
                             <button class="tool" data-tool="eraser">🧽</button>
                             <input type="color" id="colorPicker" value="#000000" />
-                            <button class="tool" id="clearCanvas">🗑️</button>
+                            <div class="size-dropdown">
+                                <button id="sizeDropdownBtn">
+                                    <span id="currentSizePreview" class="line l2"></span>
+                                </button>
+                                <div id="sizeDropdownMenu" class="dropdown-content">
+                                    <div class="dropdown-item" data-size="1">
+                                        <div class="line l1"></div>
+                                    </div>
+                                    <div class="dropdown-item" data-size="3">
+                                        <div class="line l2"></div>
+                                    </div>
+                                    <div class="dropdown-item" data-size="5">
+                                        <div class="line l3"></div>
+                                    </div>
+                                    <div class="dropdown-item" data-size="8">
+                                        <div class="line l4"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <canvas id="paintCanvas" width="305%" height="200%"></canvas>
@@ -308,10 +330,12 @@
                         </span>
                     </div>
                 </div>
+                <div class="monitor-logo-cont">
+                    <img id="LG-logo" src="../img/LG-logo.png" alt="LG logo">
+                </div>
+                <!-- Power Button -->
+                <div class="power-button"></div>
             </div>
-
-            <!-- Power Button -->
-            <div class="power-button"></div>
 
             <!-- Lamp -->
             <div id="lamp"></div>
@@ -418,6 +442,8 @@
             <div class="desk"></div>
         </div>
     </div>
+
+    <div class="monitor-zoom-overlay"></div>
 
     <footer>&#169; 2025/26 Molnár Hanga Borbála | All rights reserved</footer>
 
