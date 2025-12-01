@@ -186,14 +186,15 @@
 /* Power Button */
 .power-button {
     position: absolute;
-    bottom: 225px;
+    bottom: 0px;
     width: 15px;
     height: 7px;
-    right: 353px;
+    right: 6px;
     background-color: rgb(170, 0, 0);
-    z-index: 100000;
+    z-index: 10000;
     border: 1px black solid;
     cursor: pointer;
+    border-radius: 50px;
     transition: background-color 0.2s ease-in-out;
 }
 
@@ -226,6 +227,16 @@
     background: black;
     border: 2px solid var(--border-color);
     border-top: none;
+}
+
+/* LG logo */
+#LG-logo {
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 10px;
+    filter: brightness(0.8);
 }
 
 .screen {
